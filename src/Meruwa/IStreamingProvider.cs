@@ -6,7 +6,6 @@ namespace Meruwa
     public interface IStreamingProvider
     {
         string MediaType { get; }
-        Timer Timer { get; }
-        void RegisterOutput(Stream outputStream, CancellationToken cancellationToken);
+        Timer RegisterOutput(Stream outputStream, CancellationToken cancellationToken);
     }
 }

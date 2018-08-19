@@ -4,44 +4,43 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Meruwa
-{
-    
+{    
     public class StreamingProviderManager : IStreamingProviderManager
     {
         private readonly ConcurrentDictionary<string, IStreamingProvider> _providers = new ConcurrentDictionary<string, IStreamingProvider>();
 
-        public void Add(string name, IStreamingProvider provider)
+        public void Add(string channel, IStreamingProvider provider)
         {
-            if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentNullException(nameof(name));
+            if (string.IsNullOrWhiteSpace(channel))
+                throw new ArgumentNullException(nameof(channel));
             if (provider == null)
                 throw new ArgumentNullException(nameof(provider));
 
-            _providers.AddOrUpdate(name, provider, (n, p) => provider);
+            _providers.AddOrUpdate(channel, provider, (n, p) => provider);
         }
 
-        public void Add(string name, Func<IStreamingProvider> providerFactory)
+        public void Add(string channel, Func<IStreamingProvider> providerFactory)
         {
             var provider = providerFactory.Invoke();
-            Add(name, provider);
+            Add(channel, provider);
         }
 
-        public void Remove(string name)
+        public void Remove(string channel)
         {
-            if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentNullException(nameof(name));
+            if (string.IsNullOrWhiteSpace(channel))
+                throw new ArgumentNullException(nameof(channel));
 
             IStreamingProvider provider;
-            _providers.TryRemove(name, out provider);
+            _providers.TryRemove(channel, out provider);
             provider = null;//TODO: implement IDisposable on IStreamingProviders
         }
 
-        public IStreamingProvider Get(string name)
+        public IStreamingProvider Get(string channel)
         {
-            if (!_providers.ContainsKey(name))
-                throw new MeruwaException($"A channel with name '{name}' does not exist.");
+            if (!_providers.ContainsKey(channel))
+                throw new MeruwaException($"A channel with name '{channel}' does not exist.");
 
-            return _providers[name];
+            return _providers[channel];
         }
     }
 }

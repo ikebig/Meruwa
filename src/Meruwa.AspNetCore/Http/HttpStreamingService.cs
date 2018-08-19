@@ -29,6 +29,9 @@ namespace Meruwa.Http
 
         public Task Process(StreamingRequest streamingRequest)
         {
+            if (streamingRequest.GetType() != typeof(HttpStreamingRequest))
+                throw new ArgumentException($"{nameof(HttpStreamingRequest)} is required.");
+
             var req = streamingRequest as HttpStreamingRequest;
             var httpContext = req.HttpContext;
             var provider = _streamingProviderManager.Get(req.Name);
@@ -39,8 +42,7 @@ namespace Meruwa.Http
                 provider.RegisterOutput(responseStream, req.CancellationToken);
 
             }, provider.MediaType);
-            
-            Timer t = provider.Timer;
+
             return res.Content.CopyToAsync(httpContext.Response.Body);
         }
 

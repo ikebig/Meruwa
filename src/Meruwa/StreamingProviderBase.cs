@@ -9,7 +9,7 @@ namespace Meruwa
     {
         #region Const
 
-        private const int DATA_POLLING_INTERVAL_SECONDS = 5000;
+        private const int DATA_POLLING_INTERVAL_SECONDS = 1000;
 
         #endregion
 
@@ -68,11 +68,9 @@ namespace Meruwa
 
         #region IStreamingProvider Impl
 
-        public Timer Timer { get { return _timer.Value; } }
-
         public virtual string MediaType { get { return "text/plain"; } }
 
-        public void RegisterOutput(Stream outputStream, CancellationToken cancellationToken)
+        public Timer RegisterOutput(Stream outputStream, CancellationToken cancellationToken)
         {
             StreamWriter responseStreamWriter = new StreamWriter(outputStream);
 
@@ -80,6 +78,8 @@ namespace Meruwa
             cancellationToken.Register(CancellationRequested, responseStreamWriter);
 
             _outputs.TryAdd(responseStreamWriter, responseStreamWriter);
+
+            return _timer.Value;
         }
 
         #endregion

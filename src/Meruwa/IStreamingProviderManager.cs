@@ -7,9 +7,9 @@ namespace Meruwa
     /// </summary>
     public interface IStreamingProviderManager
     {
-        void Add(string name, IStreamingProvider provider);
-        void Add(string name, Func<IStreamingProvider> providerFactory);
-        void Remove(string name);
-        IStreamingProvider Get(string name);
+        void Add(string channel, IStreamingProvider provider);
+        void Add(string channel, Func<IStreamingProvider> providerFactory);
+        void Remove(string channel);
+        IStreamingProvider Get(string channel);
     }
 }
