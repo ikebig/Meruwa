@@ -1,2 +1,2 @@
 # meruwa
-A simple multi-channel solution for pushing stream to connected clients.
+A simple multi-channel solution for pushing streams to connected clients.
