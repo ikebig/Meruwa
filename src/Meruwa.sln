@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meruwa", "Meruwa\Meruwa.csproj", "{13BFD4FB-134B-4145-B1E5-7AF0E982D2A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meruwa", "Meruwa\Meruwa.csproj", "{13BFD4FB-134B-4145-B1E5-7AF0E982D2A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meruwa.AspNetCore", "Meruwa.AspNetCore\Meruwa.AspNetCore.csproj", "{F3F5CDC4-E7EB-4C5A-86B8-3F3A3B5BF0E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meruwa.AspNetCore", "Meruwa.AspNetCore\Meruwa.AspNetCore.csproj", "{F3F5CDC4-E7EB-4C5A-86B8-3F3A3B5BF0E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{627F3F59-4F3B-4658-B15F-E681BA116A7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meruwa.Samples.AspNetCore", "Samples\Meruwa.Samples.AspNetCore\Meruwa.Samples.AspNetCore.csproj", "{C682836A-A3B1-44A2-9545-854FFE6BB046}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +25,16 @@ Global
 		{F3F5CDC4-E7EB-4C5A-86B8-3F3A3B5BF0E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3F5CDC4-E7EB-4C5A-86B8-3F3A3B5BF0E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3F5CDC4-E7EB-4C5A-86B8-3F3A3B5BF0E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C682836A-A3B1-44A2-9545-854FFE6BB046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C682836A-A3B1-44A2-9545-854FFE6BB046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C682836A-A3B1-44A2-9545-854FFE6BB046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C682836A-A3B1-44A2-9545-854FFE6BB046}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C682836A-A3B1-44A2-9545-854FFE6BB046} = {627F3F59-4F3B-4658-B15F-E681BA116A7B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3302E229-015F-4334-A82F-A99845646606}

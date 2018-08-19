@@ -9,7 +9,8 @@ namespace Meruwa
     {
         #region Const
 
-        private const int DATA_POLLING_INTERVAL_SECONDS = 1000;
+        //TODO: Data Polling Interval should be configurable
+        private const int DATA_POLLING_INTERVAL_SECONDS = 100;
 
         #endregion
 
